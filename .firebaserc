@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "digital-garden-edb9e": {
+      "hosting": {
+        "digital-garden": [
+          "digital-garden-edb9e"
+        ]
+      }
+    }
+  }
+}

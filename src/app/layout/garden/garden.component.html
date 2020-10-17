@@ -1,0 +1,9 @@
+<main>
+    <section class="garden-container">
+        <div class="garden" data-js-garden>
+            <app-plant *ngFor="let plant of plants | async" [plant]="plant"></app-plant>
+        </div>
+    </section>
+
+
+</main>

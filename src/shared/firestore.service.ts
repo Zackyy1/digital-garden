@@ -16,10 +16,6 @@ export class FirestoreService {
 
   constructor(private firestore: AngularFirestore) {
     this.plantsCollection = firestore.collection<Plant>(environment.plantsCollection);
-    // this.plants.subscribe(queriedItems => {
-    //   console.log(queriedItems);
-    // });
-    // this.plants = this.plantsCollection.valueChanges();
 
     this.plants = this.plantsCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {

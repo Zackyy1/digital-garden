@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from 'src/shared/auth.service';
 import { FirestoreService } from 'src/shared/firestore.service';
 
 @Component({
@@ -8,20 +9,28 @@ import { FirestoreService } from 'src/shared/firestore.service';
 })
 export class PlantComponent implements OnInit {
 
-  constructor(private firestore: FirestoreService) { }
+  isLoggedIn: boolean;
+
+  constructor(
+    private firestore: FirestoreService,
+    private auth: AuthService) {
+    auth.auth.user.subscribe(e => {
+      this.isLoggedIn = e ? true : false;
+    })
+  }
   
 
   @Input() plant;
   name: string;
   level: number;
   desc: string;
-
+  color: string;
 
   ngOnInit(): void {
-    console.log(this);
     this.name = this.plant.name;
     this.desc = this.plant.desc;
     this.level = this.plant.level;
+    this.color = this.plant.color;
   }
 
 }

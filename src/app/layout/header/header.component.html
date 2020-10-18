@@ -1,6 +1,8 @@
 <header class="header">
-    <h1>Zackyy's Digital Garden</h1>
+    <a href="/garden"><h1>Zackyy's Digital Garden</h1></a>
     <div class="buttons">
-        <button id="new-plant" data-js-new-plant>New plant</button>
+        <button id="new-plant" *ngIf="isLoggedIn" data-js-new-plant (click)="openPopupWithForm('newPlantForm')" >New plant</button>
+        <button id="logout" *ngIf="isLoggedIn" data-js-logout (click)="logout()" >Logout</button>
+
     </div>
 </header>

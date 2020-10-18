@@ -3,50 +3,52 @@ import * as $ from 'jquery';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/internal/Observable';
 
+export interface Plant { 
+  name: string, 
+  desc: string,
+  longDesc: string,
+  level: number,
+  color: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class GeneralService {
 
   CLOSE_POPUP = '[data-js-close-popup]';
   POPUP = '[data-js-popup]';
   POPUP_CONTENT = '[data-js-popup-content]';
-  TOP_LAYER = '[data-js-toplayer]';
-  COLOR_PICKER_HTML = `<ul class="color-picker">
-    <li class="color-container"><button class="red">Red</button></li>
-    <li class="color-container"><button class="green">Green</button></li>
-    <li class="color-container"><button class="blue">Blue</button></li>
-    <li class="color-container"><button class="orange">Orange</button></li>
-    <li class="color-container"><button class="purple">Purple</button></li>
-    <li class="color-container"><button class="cyan">Cyan</button></li>
-    <button class="cancel-color-pick">Cancel</button>
-</ul>`
+  EDIT_FORM: string = '[data-js-edit-plant-form]';
+  NEW_PLANT_FORM: string = '[data-js-new-plant-form]';
 
-
-  items: Observable<any[]>;
   constructor(public firestore: AngularFirestore) {
-   }
-
-  closePopup = () => {
-    $(this.POPUP_CONTENT).children().remove();
-    $(this.POPUP).hide();
   }
-  openPopup = (content?: JQuery<HTMLElement>) => {
-    if (!content) {
-      $(this.POPUP).show();
-      return
-    }
-    $(this.POPUP_CONTENT).append(content);
-    $(this.POPUP).show();
 
+  showPopup = () => {
+    $(this.POPUP).removeClass('hidden');
   }
-  openTopLayerPopup = (content: JQuery<HTMLElement>) => {
-    $(this.TOP_LAYER).append(content);
-    $(this.TOP_LAYER).show();
+  hidePopup = () => {
+    $(this.POPUP).addClass('hidden');
+    $(this.POPUP).find(this.POPUP_CONTENT).children().children().addClass('hidden')
   }
 
   minimizeString = (sourceString: string): string => {
-
     return sourceString.toLowerCase().split(' ').join('-');
   }
+
+  openPopupWithForm = (popupName: string) => {
+    this.showPopup();
+    switch (popupName) {
+      case 'newPlantForm':        
+          $(this.NEW_PLANT_FORM).removeClass('hidden')
+
+        break;
+    
+      default:
+        break;
+    }
+  }
+
 }

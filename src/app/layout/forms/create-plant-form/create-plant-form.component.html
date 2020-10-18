@@ -1,4 +1,4 @@
-<form class="new-plant-form" data-js-new-plant-form>
+<form class="new-plant-form hidden" data-js-new-plant-form>
     <h2 class="new-plant-heading">New plant</h2>
     <div class="new-plant-form-container">
         <label for="name">Plant Name</label>
@@ -11,11 +11,24 @@
         <textarea id="longDesc"></textarea>
 
         <label for="color-picker">Color</label>
-        <button id="color-picker">Pick a color</button>
+        <div class="color-picker-container">
+            <button id="color-picker-button" (click)="openColorPicker($event)">Pick a color</button>
 
+            <ul class="color-picker hidden" data-color-choice="none" data-js-color-picker>
+                <li class="color-container"><button class="red" data-color="red"></button></li>
+                <li class="color-container"><button class="green" data-color="green"></button></li>
+                <li class="color-container"><button class="blue" data-color="blue"></button></li>
+                <li class="color-container"><button class="orange" data-color="orange"></button></li>
+                <li class="color-container"><button class="purple" data-color="purple"></button></li>
+                <li class="color-container"><button class="cyan" data-color="cyan"></button></li>
+            </ul>
+            <button class="cancel-color-pick hidden" (click)="closeColorPicker($event)" data-js-cancel-color-pick>Cancel</button>
+
+        </div>
+       
         <label for="level">Plant Level</label>
         <input type="number" min="1" value="1" max="4" name="level" id="level" required>
     </div>
 
-    <input type="submit" value="Submit">
+    <input type="submit" (click)="submitNewPlantForm($event)" value="Submit">
 </form>

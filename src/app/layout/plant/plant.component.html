@@ -1,11 +1,11 @@
 <div class="plant-container">
-    <i class="fas fa-pen edit-icon" data-js-edit-icon></i>
+    <i class="fas fa-pen edit-icon" *ngIf="isLoggedIn" data-js-edit-icon></i>
     <button class="plant" data-js-plant>
-        <div class="color-code"></div>
-        <h2 class="title">{{name}}testname</h2>
+        <div class="color-code" [style.background-color]="color"></div>
+        <h2 class="title">{{name}}</h2>
         <div class="short-desc">
-            {{desc}}testdesc
+            {{desc}}
         </div>
-        <div class="plant-icon">{{level}}testlevel</div>
+        <div class="plant-icon">{{level}}</div>
     </button>
 </div>

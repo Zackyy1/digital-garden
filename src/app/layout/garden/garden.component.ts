@@ -19,7 +19,6 @@ export class GardenComponent implements OnInit {
     private firestore: FirestoreService) { }
 
   ngOnInit(): void {
-    this.makePlants();
     this.initButtons();
 
     this.plants = this.firestore.plants
@@ -29,91 +28,47 @@ export class GardenComponent implements OnInit {
 
   initButtons = () => {
     $(this.general.CLOSE_POPUP).on('click', e => {
-      this.general.closePopup();
+      this.general.hidePopup();
     })
 
     $(this.general.POPUP).on('click', e => {
       // console.log($(e.target), $(e.target).is(POPUP_CONTENT))
       if (!$(e.target).parents(this.general.POPUP_CONTENT).length) {
-        this.general.closePopup();
+        this.general.hidePopup();
       }
 
     })
 
-    $(this.NEW_PLANT_BUTTON).on('click', e => {
-      let newPlantForm = `
+    // $(this.NEW_PLANT_BUTTON).on('click', e => {
+    //   let newPlantForm = `
         
-        `
-      let newPlantContent: JQuery<HTMLElement> =
-        $(newPlantForm)
-      this.general.openPopup(newPlantContent);
-      newPlantContent.find('#color-picker').on('click', e => {
-        e.preventDefault();
-        this.general.openTopLayerPopup($(this.general.COLOR_PICKER_HTML));
-      })
-      newPlantContent.on('submit', e => {
-        e.preventDefault();
-        const data = {
-          name: newPlantContent.find('#name').val(),
-          desc: newPlantContent.find('#desc').val(),
-          longDesc: newPlantContent.find('#longDesc').val(),
-          level: newPlantContent.find('#level').val(),
-        }
-        console.log('We gotem', data)
-        this.addNewPlant(data);
-        this.general.closePopup();
-      });
-
-
-    })
-  }
-  makePlants = (): void => {
-    // this.general.firestore.collection('plants').get().then(ref => {
-    //   ref.docs.forEach(el => {
-    //     let plant = el.data();
-    //     const PLANT_HTML: string = `
-    //         <li class="plant-container" data-path="${el.ref.path}">
-    //             <i class="fas fa-pen edit-icon" data-js-edit-icon></i>
-    //             <button class="plant" data-js-plant>
-    //             <div style="background-color: ${plant.colorCode || 'none'}" class="color-code"></div>
-    //                 <h2 class="title">${plant.name}</h2>
-    //                 <div class="short-desc">
-    //                     ${plant.desc}
-    //                 </div>
-    //                 <div class="plant-icon">${plant.level}</div>
-    //             </button>
-    //         </li>`;
-    //     const PLANT: JQuery<HTMLElement> = $(PLANT_HTML);
-    //     PLANT.on('click', e => {
-    //       if (!$(e.target).is(this.EDIT_ICON)) {
-    //         this.showPlantDetails($(e.target));
-    //       }
-    //     })
-
-    //     PLANT.find(this.EDIT_ICON).on('click', e => {
-    //       console.log('Clicked edit');
-    //     })
-    //     $(this.GARDEN).append(PLANT);
+    //     `
+    //   let newPlantContent: JQuery<HTMLElement> =
+    //     $(newPlantForm)
+    //   this.general.openPopup(newPlantContent);
+    //   newPlantContent.find('#color-picker').on('click', e => {
+    //     e.preventDefault();
+    //     this.general.openTopLayerPopup($(this.general.COLOR_PICKER_HTML));
     //   })
-    // }).catch(err => {
-    //   console.warn(err)
+    //   newPlantContent.on('submit', e => {
+    //     e.preventDefault();
+    //     const data = {
+    //       name: newPlantContent.find('#name').val(),
+    //       desc: newPlantContent.find('#desc').val(),
+    //       longDesc: newPlantContent.find('#longDesc').val(),
+    //       level: newPlantContent.find('#level').val(),
+    //     }
+    //     console.log('We gotem', data)
+    //     this.addNewPlant(data);
+    //     this.general.closePopup();
+    //   });
+
+
     // })
   }
+
   addNewPlant = (data) => {
-    // this.general.firestore.collection('plants').doc(this.general.minimizeString(data.name)).get().then(ref => {
-    //   if (!ref.exists) {
-    //     this.general.firestore.collection('plants').doc(this.general.minimizeString(data.name)).set(data)
-    //       .then(ref2 => {
-    //         console.log(ref)
-    //       }).catch(ref3 => {
-    //         console.error(ref3)
-    //       })
-    //   } else {
-    //     alert('Document already exists')
-    //   }
-    // }).catch(ref4 => {
-    //   console.error(ref4)
-    // });
+
 
   }
   showPlantDetails = (el: JQuery<HTMLElement>) => {

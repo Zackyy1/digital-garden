@@ -1,27 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralService } from 'src/shared/general.service';
 import * as $ from 'jquery';
+import { AuthService } from 'src/shared/auth.service';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.less']
 })
+
+
 export class HeaderComponent implements OnInit {
-  NEW_PLANT_BUTTON = '[data-js-new-plant]';
 
-  constructor(private general: GeneralService) { }
+  isLoggedIn: boolean;
 
-  ngOnInit(): void {
-  }
-
-  initClickListener = () => {
-    $(this.NEW_PLANT_BUTTON).on('click', e => {
-      this.openForm();
+  constructor(
+    private general: GeneralService,
+    private auth: AuthService) {
+    auth.auth.user.subscribe(e => {
+      this.isLoggedIn = e ? true : false;
     })
   }
 
-  openForm = () => {
-    this.general.openPopup();
+  ngOnInit() {
+
+  }
+
+  openPopupWithForm = (popupName) => {
+    this.general.openPopupWithForm(popupName);
+  }
+
+  logout = () => {
+    this.auth.logout();
   }
 
 }

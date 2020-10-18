@@ -8,5 +8,6 @@ export const environment = {
     storageBucket: "digital-garden-edb9e.appspot.com",
     messagingSenderId: "150390508570",
     appId: "1:150390508570:web:08ab34c8af95bd94a495a3"
-  }
+  },
+  plantsCollection: 'plants'
 };

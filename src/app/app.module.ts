@@ -12,6 +12,8 @@ import { CreatePlantFormComponent } from './layout/forms/create-plant-form/creat
 import { EditPlantFormComponent } from './layout/forms/edit-plant-form/edit-plant-form.component';
 import { PopupComponent } from './layout/popup/popup.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { GardenPageComponent } from './garden-page/garden-page.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { HeaderComponent } from './layout/header/header.component';
     EditPlantFormComponent,
     PopupComponent,
     HeaderComponent,
+    LoginPageComponent,
+    GardenPageComponent,
   
   ],
   imports: [

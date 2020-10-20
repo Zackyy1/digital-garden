@@ -19,12 +19,15 @@ export class FormsService {
    * 
    * Gets all inputted data with keys as name attributes
    */
-  getFormData = (selector: string): Plant => {
+  getFormData = (selector: string) => {
     const FORM: JQuery<HTMLElement> = $(selector);
-    let data: Plant = {name: '', desc: '', longDesc: '', level: 1, color: ''};
-    FORM.find('input:not(button),textarea').each( (i, e) => {
+    let data = {};
+    FORM.find('input:not(button):not(input[type="submit"]),textarea').each( (i, e) => {
       let inputName: string = $(e).attr('name');
-      data[inputName] = $(e).val();
+      let inputValue: string = $(e).val().toString();
+      if (inputName.length > 0 && inputValue.length > 0) {
+        data[inputName] = inputValue;
+      }
     })
     return data
   }

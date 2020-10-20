@@ -14,6 +14,7 @@ import { PopupComponent } from './layout/popup/popup.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { GardenPageComponent } from './garden-page/garden-page.component';
+import { PlantOverviewPageComponent } from './plant-overview-page/plant-overview-page.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { GardenPageComponent } from './garden-page/garden-page.component';
     HeaderComponent,
     LoginPageComponent,
     GardenPageComponent,
+    PlantOverviewPageComponent,
   
   ],
   imports: [

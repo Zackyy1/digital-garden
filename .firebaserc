@@ -7,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "staging": "digital-garden-edb9e"
   }
 }

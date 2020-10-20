@@ -65,7 +65,7 @@ export class CreatePlantFormComponent implements OnInit {
   submitNewPlantForm = (e) => {
     e.preventDefault();
     console.log('Submitting for with data');
-    let data: Plant = this.forms.getFormData(this.FORM);
+    let data = this.forms.getFormData(this.FORM);
     data['color'] = this.getColorChoice();
 
     console.log('Submitting:', data);

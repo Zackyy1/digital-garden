@@ -10,6 +10,7 @@ import { Plant } from './general.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirestoreService {
   private plantsCollection: AngularFirestoreCollection<Plant>;
   plants: Observable<Plant[]>;
@@ -26,7 +27,7 @@ export class FirestoreService {
     );
   }
 
-  addPlant(data: Plant) {
+  addPlant(data) {
     this.plantsCollection.add(data);
   }
 

@@ -8,7 +8,7 @@ import { PlantOverviewPageComponent } from './plant-overview-page/plant-overview
 const routes: Routes = [
 
   { path: 'login', component: LoginPageComponent },
-  { path: 'plant/:id', component: PlantOverviewPageComponent },
+  { path: 'plant/:id', component: PlantOverviewPageComponent},
   { path: 'garden', component: GardenComponent },
   { path: '', redirectTo: '/garden', pathMatch: 'full' },
   { path: '**', redirectTo: '/garden'}
@@ -17,7 +17,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
 })
 export class AppRoutingModule {
 

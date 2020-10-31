@@ -1,14 +1,30 @@
 <section class="plant-page">
-    <div class="plant-header">
-        <h2 data-js-plant-name></h2>
+    <div class="back-button-container" [routerLink]="['/garden']">
+        <div class="button-wrapper"> 
+            <a class="fake-link back-button "><i class="fas fa-angle-left"></i>Back</a>
+        </div>
     </div>
-    <div class="plant-body">
-        <div class="plant-level" data-js-plant-level></div>
-        <div class="long-desc" data-js-plant-long-desc></div>
-        <div class="link" data-js-plant-link></div>
 
-    </div>
-    <div class="plant-images-container" data-js-plant-images-container>
+    <div class="container">
 
+
+        <div class="plant-header">
+            <h2 data-js-plant-name></h2>
+        </div>
+        <div class="plant-body">
+            <div class="plant-level" data-js-plant-level></div>
+            <div class="long-desc" data-js-plant-long-desc></div>
+            <div class="link"><a class="animated-underline" href="" data-js-plant-link>Visit project</a></div>
+
+        </div>
+        <div class="plant-images-container" data-js-plant-images-container>
+            <label for="newImages" class="file-input">+ ADD IMAGES</label>
+            <input *ngIf="isLoggedIn" type="file" class="hidden" id="newImages" multiple (change)="uploadFile($event)">
+
+            <div class="carousel" >
+                <img *ngFor="let img of images" src="{{img}}" alt="">
+            </div>
+
+        </div>
     </div>
 </section>

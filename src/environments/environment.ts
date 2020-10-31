@@ -11,9 +11,10 @@ export const environment = {
     projectId: "digital-garden-edb9e",
     storageBucket: "digital-garden-edb9e.appspot.com",
     messagingSenderId: "150390508570",
-    appId: "1:150390508570:web:08ab34c8af95bd94a495a3"
+    appId: "1:150390508570:web:08ab34c8af95bd94a495a3",
   },
-  plantsCollection: 'test-plants'
+  plantsCollection: 'test-plants',
+  plantsMedia: '/test/'
 
 };
 

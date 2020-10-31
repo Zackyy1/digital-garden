@@ -9,15 +9,16 @@ import { Router, RouterModule } from '@angular/router';
 export class AuthService {
 
   isLoggedIn: boolean;
-
+  Auth;
 
   constructor(
     public auth: AngularFireAuth,
     private router: Router
     ) {
-    auth.user.subscribe(e => {
+    this.Auth = auth.user.subscribe(e => {
       console.log(e);
       this.isLoggedIn = e ? true : false;
+      return e
     })
   }
 

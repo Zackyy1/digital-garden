@@ -14,6 +14,7 @@ import { PopupComponent } from './layout/popup/popup.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { GardenPageComponent } from './garden-page/garden-page.component';
+import { AngularFireStorageModule } from '@angular/fire/storage'
 import { PlantOverviewPageComponent } from './plant-overview-page/plant-overview-page.component';
 
 
@@ -35,7 +36,8 @@ import { PlantOverviewPageComponent } from './plant-overview-page/plant-overview
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule
 
   ],
   providers: [],

@@ -31,5 +31,8 @@ export class FirestoreService {
     this.plantsCollection.add(data);
   }
 
+  editPlant(data) {
+    this.plantsCollection.doc(data.plantId).update(data.data)
+  }
 
 }

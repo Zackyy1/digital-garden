@@ -1,11 +1,11 @@
 <div class="plant-container" [routerLink]="['/plant', plant.id]" >
-    <i class="fas fa-pen edit-icon" *ngIf="isLoggedIn" data-js-edit-icon></i>
+    <!-- <i class="fas fa-pen edit-icon" *ngIf="isLoggedIn" data-js-edit-icon></i> -->
     <div class="plant" data-js-plant>
         <div class="color-code" [style.background-color]="color"></div>
         <h2 class="title">{{name}}</h2>
         <div class="short-desc">
             {{desc}}
         </div>
-        <div class="plant-icon">{{level}}</div>
+        <div class="plant-icon level-{{level}}"></div>
     </div>
 </div>

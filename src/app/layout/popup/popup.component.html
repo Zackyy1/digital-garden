@@ -1,6 +1,6 @@
-<section class="popup hidden" data-js-popup>
-    <button id="close-popup" data-js-close-popup>&times;</button>
-    <div class="popup-content" data-js-popup-content>
+<section class="popup hidden" (click)="general.hidePopup($event)" data-js-popup>
+    <button id="close-popup" (click)="general.hidePopup($event)" data-js-close-popup>&times;</button>
+    <div class="popup-content" data-js-popup-content >
         <!-- POPUP CONTENT -->
 
       <app-edit-plant-form></app-edit-plant-form>

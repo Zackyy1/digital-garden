@@ -1,21 +1,37 @@
 <form class="edit-plant-form hidden" data-js-edit-plant-form>
-    <h2 class="edit-plant-heading">New plant</h2>
+    <h2 class="edit-plant-heading">Edit plant</h2>
     <div class="edit-plant-form-container">
         <label for="name">Plant Name</label>
         <input type="text" name="name" id="name" required>
+
+        <label for="link">Link</label>
+        <input type="text" name="link" id="link">
 
         <label for="desc">Plant short description</label>
         <input type="text" maxlength="112" name="desc" id="desc" required>
 
         <label for="longDesc">Plant description</label>
-        <textarea id="longDesc"></textarea>
+        <textarea id="longDesc" name="longDesc"></textarea>
 
         <label for="color-picker">Color</label>
-        <button id="color-picker">Pick a color</button>
+        <div class="color-picker-container">
+            <button id="color-picker-button" (click)="openColorPicker($event)">Pick a color</button>
 
+            <ul class="color-picker hidden" data-color-choice="none" data-js-color-picker>
+                <li class="color-container"><button class="red" data-color="red"></button></li>
+                <li class="color-container"><button class="green" data-color="green"></button></li>
+                <li class="color-container"><button class="blue" data-color="blue"></button></li>
+                <li class="color-container"><button class="orange" data-color="orange"></button></li>
+                <li class="color-container"><button class="purple" data-color="purple"></button></li>
+                <li class="color-container"><button class="cyan" data-color="cyan"></button></li>
+            </ul>
+            <button class="cancel-color-pick hidden" (click)="closeColorPicker($event)" data-js-cancel-color-pick>Cancel</button>
+
+        </div>
+       
         <label for="level">Plant Level</label>
         <input type="number" min="1" value="1" max="4" name="level" id="level" required>
     </div>
 
-    <input type="submit" value="Submit">
+    <input type="submit" (click)="submitEditPlantForm($event)" value="Submit">
 </form>

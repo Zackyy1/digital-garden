@@ -40,7 +40,7 @@ button {
 
 
 // FIXES
-app-create-plant-form {
+app-create-plant-form, app-edit-plant-form {
     width: 100%;
     height: 100%;
 }
@@ -79,5 +79,40 @@ app-create-plant-form {
     &:hover::after {
         background-color: rgba(255, 255, 255, 0.122);
         transition: background-color 0.3s ease-in-out;
+    }
+}
+
+
+.plant-icon, .plant-level {
+
+    &.plant-icon {
+        width: 32px;
+        height: 32px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    &.plant-level {
+        width: 88px;
+        height: 88px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        // padding: 1rem;
+    }
+   
+
+
+    &.level-1 {
+        background-image: url('./assets/level1.png');
+    }
+    &.level-2 {
+        background-image: url('./assets/level2.png');
+    }
+    &.level-3 {
+        background-image: url('./assets/level3.png');
+    }
+    &.level-4 {
+        background-image: url('./assets/level4.png');
+       
     }
 }

@@ -76,12 +76,17 @@ export class PlantOverviewPageComponent implements OnInit {
 
   }
 
+  editPlant = () => {
+    this.general.openPopupWithForm('editPlantForm', this.plant);
+
+  }
+
 
   displayContent = () => {
     $(this.nameSelector).text(this.plant.name)
     $(this.longDescSelector).text(this.plant.longDesc)
     $(this.linkSelector).attr('href', this.plant.link)
-    $(this.levelSelector).text(this.plant.level)
+    // $(this.levelSelector).text(this.plant.level)
     // $(this.imagesContainerSelector).text(this.plant.)
   }
 

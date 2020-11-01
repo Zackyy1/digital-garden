@@ -25,6 +25,7 @@ export class FormsService {
     FORM.find('input:not(button):not(input[type="submit"]),textarea').each( (i, e) => {
       let inputName: string = $(e).attr('name');
       let inputValue: string = $(e).val().toString();
+      let colorChoice: string = $(e).parent().find('data-js-color-picker').attr('data-color-choice');
       if (inputName.length > 0 && inputValue.length > 0) {
         data[inputName] = inputValue;
       }

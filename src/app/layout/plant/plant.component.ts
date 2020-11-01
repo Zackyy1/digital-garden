@@ -41,11 +41,6 @@ export class PlantComponent implements OnInit {
 
   }
 
-  redirectToPlantOverview = (plant) => {
-    
-    console.log('trying to redirect to plant', plant);
-
-    
-  }
+  
 
 }

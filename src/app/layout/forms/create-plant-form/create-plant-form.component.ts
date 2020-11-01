@@ -28,7 +28,7 @@ export class CreatePlantFormComponent implements OnInit {
   }
 
   initColorPickListener = () => {
-    $(this.colorPicker).find('button').on('click', e => {
+    $(this.FORM).find(this.colorPicker).find('button').on('click', e => {
       e.preventDefault();
       // const $BUTTON: JQuery<HTMLElement> = $(e.target);
       // console.log('Picked color', $BUTTON.data('color'));
@@ -41,25 +41,25 @@ export class CreatePlantFormComponent implements OnInit {
 
   openColorPicker = (e): void => {
     e.preventDefault();    
-    $(this.colorPicker).removeClass('hidden');
-    $(this.colorPickerCancel).removeClass('hidden');
+    $(this.FORM).find(this.colorPicker).removeClass('hidden');
+    $(this.FORM).find(this.colorPickerCancel).removeClass('hidden');
 
   }
   closeColorPicker = (e): void => {
     e.preventDefault();
-    $(this.colorPicker).addClass('hidden');
-    $(this.colorPickerCancel).addClass('hidden');
+    $(this.FORM).find(this.colorPicker).addClass('hidden');
+    $(this.FORM).find(this.colorPickerCancel).addClass('hidden');
   }
 
   getColorChoice = (): string => {
-    return $(this.colorPicker).data('color-choice');
+    return $(this.FORM).find(this.colorPicker).data('color-choice');
   }
 
   chooseColor = (e): void => {
     const PICKED_COLOR_ELEMENT = $(e.target);
     const PICKED_COLOR = PICKED_COLOR_ELEMENT.data('color');
     console.log('Chose color', PICKED_COLOR);
-    $(this.colorPicker).attr('data-color-choice', PICKED_COLOR)
+    $(this.FORM).find(this.colorPicker).attr('data-color-choice', PICKED_COLOR)
   }
 
   submitNewPlantForm = (e) => {
